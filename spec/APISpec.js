@@ -74,3 +74,34 @@ describe("Test /searchItem", function() {
 	
 
 });
+
+//TEST DI SELLITEM
+
+describe("Test /sellItem", function() {
+    
+	//set the data
+	var data = {
+			ID: 1,
+            size : "S",
+            colour: "blue"
+		};
+	
+	//legal request
+	it("to returns status code 200", function(done) {
+	  client.post(base_url + "sellItem/", data, function(err, res, body) {
+		expect(body).toEqual(null); //mi aspetto che l'item venduto non esista più nel database.
+
+		done();
+	  });
+	});
+
+	//item non existing
+	data1 = {ID: "10" };
+    
+	it("to returns status code 404", function(done) {
+	  client.post(base_url + "sellItemm/", data1, function(err, res, body) {
+		expect(res.statusCode).toBe(404);
+		done();
+	  });
+	});
+});
