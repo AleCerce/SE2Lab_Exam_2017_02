@@ -1,0 +1,22 @@
+{
+  "name": "esame",
+  "version": "1.0.0",
+  "description": "esame febbraio cervellera",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AleCerce/SE2Lab_Exam_2017_02.git"
+  },
+  "keywords": [
+    "esame"
+  ],
+  "author": "Alessandro Cervellera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AleCerce/SE2Lab_Exam_2017_02/issues"
+  },
+  "homepage": "https://github.com/AleCerce/SE2Lab_Exam_2017_02#readme"
+}
