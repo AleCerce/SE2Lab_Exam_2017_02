@@ -28,17 +28,17 @@ paths:
         - name: ID
           in: formData
           description: ID of the item
-          required: false
-          type: string
+          required: true
+          type: integer
         - name: size
           in: formData
           description: size of the item
-          required: false
+          required: true
           type: string
         - name: colour
           in: formData
           description: colour of the item
-          required: false
+          required: true
           type: string
       responses:
         200:
@@ -117,25 +117,25 @@ definitions:
   item:
     properties:
       ID:
-        type: string
-        description: ID of the pizza
+        type: integer
+        description: ID of the item
       type:
         type: string
-        description: name of the pizza
+        description: type/name of the item
       size:
         type: integer
-        description: price of the pizza
+        description: size of the item
       quantity:
         type: integer
-        description: price of the pizza
+        description: quantity of the item
       colour:
         type: string
-        description: name of the pizza
+        description: colour of the item
       price:
         type: integer
-        description: price of the pizza
+        description: price of the item
       season:
         type: integer
-        description: price of the pizza
+        description: year of the item
 
         

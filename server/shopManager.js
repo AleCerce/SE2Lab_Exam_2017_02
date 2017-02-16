@@ -255,7 +255,29 @@ var restockItem = function restockItem(item)
     
 }
 
+
 //ADD YOUR CODE BELOW THIS COMMENT, IF IT IS POSSIBLE
+
+var sales = function sales(year, discount)
+{
+    if (discount >= 100 || discount <=0){
+        return null; //sconto non valido
+    }
+    
+    for (i=0; i < warehouse.length; i++)
+	{
+		if (warehouse[i].season == year ) //se l'anno corrisponde procedo alla modifica
+		{
+            warehouse[i].price = warehouse[i].price - ((warehouse[i].price / 100) * discount)
+            return warehouse[i];
+			
+		}
+    }
+    
+    //se arriva qui non è stato applicato nessun sales: nessun prodotto di un determinato anno è stato trovato.
+    return null;
+    
+}
 
 //export functions
 exports.getWarehouse = getWarehouse; 
