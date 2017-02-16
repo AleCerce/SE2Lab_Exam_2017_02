@@ -274,7 +274,7 @@ app.post('/restockItem', function(request, response)
 
 //ADD YOUR CODE BELOW THIS COMMENT, IF IT IS POSSIBLE
 
-app.post('/searchItem', function(request, response) 
+app.post('/sales', function(request, response) 
 {
 	var headers = {};
 	headers["Access-Control-Allow-Origin"] = "*";
@@ -292,38 +292,18 @@ app.post('/searchItem', function(request, response)
 	{
         //read items
         
-        //ItemId
-		if ( typeof request.body.ID !== 'undefined' && request.body.ID)
-			 itemID = parseFloat(request.body.ID);
+        //year
+		if ( typeof request.body.year !== 'undefined' && request.body.year)
+			 year = parseInt(request.body.year);
 		else 
-			itemID = null;
+			year = null;
         
-        //itemSize
-        if ( typeof request.body.size !== 'undefined' && request.body.size)
-            itemSize = request.body.size;
+        //discount
+        if ( typeof request.body.discount !== 'undefined' && request.body.discount)
+            discount = request.body.discount;
 		else 
-			itemSize = null;
-        
-        //itemColour
-        if ( typeof request.body.colour !== 'undefined' && request.body.colour)
-            itemColour = request.body.colour;
-		else 
-			itemColour = null;
-        
-		//funzione di sales
-		var items = shopManager.sales(year,discount);
-		//if exists
-		if (items != null)
-		{
-			response.writeHead(200, headers);
-			response.end(JSON.stringify(items));
-		}
-		else
-		{
-			response.writeHead(404, headers);
-			response.end(JSON.stringify());
-		}
-	
+			discount = null;
+
 	}
 	else
 	{

@@ -55,6 +55,109 @@ paths:
                 type: integer
         404:
           description: no items that match the criteria
+
+  /searchItemID:
+    post:
+      summary: search for items
+      description: it returns a list of items that match the ID
+      parameters:
+        - name: ID
+          in: formData
+          description: ID of the item
+          required: true
+          type: integer
+
+      responses:
+        200:
+          description: list of items found
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/item"
+        406:
+          description: ID of error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no items that match the criteria
+
+  /searchItemSize:
+    post:
+      summary: search for items
+      description: it returns a list of items that match the size
+      parameters:
+        - name: size
+          in: formData
+          description: size of the item
+          required: true
+          type: string
+
+      responses:
+        200:
+          description: list of items found
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/item"
+        406:
+          description: ID of error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no items that match the criteria
+          
+/searchItemColour:
+    post:
+      summary: search for items
+      description: it returns a list of items that match the colour
+      parameters:
+        - name: colour
+          in: formData
+          description: colour of the item
+          required: true
+          type: string
+
+      responses:
+        200:
+          description: list of items found
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/item"
+        406:
+          description: ID of error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no items that match the criteria
+
+/searchItemPos:
+    post:
+      summary: search for items
+      description: it returns a list of items that match the postion
+      parameters:
+
+      responses:
+        200:
+          description: list of items found
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/item"
+        406:
+          description: ID of error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no items that match the criteria
           
   /sellItem:
     post:
@@ -64,17 +167,17 @@ paths:
         - name: ID
           in: formData
           description: ID of the item
-          required: false
+          required: true
           type: string
         - name: size
           in: formData
           description: size of the item
-          required: false
+          required: true
           type: string
         - name: colour
           in: formData
           description: colour of the item
-          required: false
+          required: true
           type: string
       responses:
         200:
@@ -89,7 +192,29 @@ paths:
                 type: integer
         404:
           description: no items found with specified criteria
-            
+      
+  /restockItems:
+    post:
+      summary: restok items 
+      description: restock items given in input
+      parameters:
+      
+      responses:
+        200:
+          description: list of items modified
+          schema: 
+            type: array
+            items:
+              $ref: "#/definitions/item"
+        406:
+          description: ID of error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no items found with specified criteria
+              
   /sales:
     post:
       summary: returns items on sale and update the databse with new prices

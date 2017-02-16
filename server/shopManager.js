@@ -260,6 +260,8 @@ var restockItem = function restockItem(item)
 
 var sales = function sales(year, discount)
 {
+    var result = []; //array vuoto con i risultati da ritornare 
+    
     if (discount >= 100 || discount <=0){
         return null; //sconto non valido
     }
@@ -268,10 +270,11 @@ var sales = function sales(year, discount)
 	{
 		if (warehouse[i].season == year ) //se l'anno corrisponde procedo alla modifica
 		{
-            warehouse[i].price = warehouse[i].price - ((warehouse[i].price / 100) * discount)
-            return warehouse[i];
+            warehouse[i].price = warehouse[i].price - ((warehouse[i].price / 100) * discount); //modifico il database con i valori aggiornati (sconti applicati)
+            result.push(warehouse[i]);
 			
 		}
+        return result; //ritorno l'array con dentro i nuovi valori aggiornati (come da consegna)
     }
     
     //se arriva qui non è stato applicato nessun sales: nessun prodotto di un determinato anno è stato trovato.
